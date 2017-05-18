@@ -24,13 +24,18 @@ module.exports = function(RED) {
         }
 
         node.controller.on('direct_message,direct_mention,mention',function(bot, message) {
+            var username ="No Name";
             bot.api.users.info({user: message.user}, function(err, info){
                 //check if it's the right user using info.user.name or info.user.id
-                message["fromUser"] = info.user.name;
+                message["fromUser"] = info.user.real_name;
+                username = info.user.real_name;
+                console.log("message:",message);
+                console.log("info:",info);
             })
             var msg = { 
                 message: message,
-                payload: message.text 
+                payload: message.text,
+                fromUser: username
             };
             
             console.log(msg);
