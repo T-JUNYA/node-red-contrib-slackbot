@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-slackbot-tjun",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "NodeRED node to easily create a chatbot in Slack",
   "main": "index.js",
   "scripts": {

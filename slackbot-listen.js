@@ -31,16 +31,18 @@ module.exports = function(RED) {
                 username = info.user.real_name;
                 console.log("message:",message);
                 console.log("info:",info);
-            })
-            var msg = { 
-                message: message,
-                payload: message.text,
-                fromUser: username
-            };
-            
-            console.log(msg);
-            
-            node.send(msg);
+
+                var msg = { 
+                    message: message,
+                    payload: message.text,
+                    fromUser: username
+                };
+                
+                console.log(msg);
+                
+                node.send(msg);
+
+            });
         });
         
         node.on('close', function(done) {
